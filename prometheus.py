@@ -1,5 +1,6 @@
 # This is the python script for Prometheus Perplex, aka "Plaude", stealing fire from the gods! 
 # This top part is just all the boilerplate to make the flask app work.
+#Created by Zennou.
 import logging
 import configparser
 from typing import Iterable, Dict
