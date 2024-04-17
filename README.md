@@ -1,11 +1,11 @@
 # Plaude
 
 Stealing Fire from the gods!
-This Flask app takes messages from Perplexity and streams them into SillyTavern, allowing you to use your ~~"""Legally Paid for"""~~ subscription to Perplexity Pro within SillyTavern! :)
+This Flask app takes messages from Perplexity and streams them into SillyTavern, allowing you to use your """Legally Paid for""" subscription to Perplexity Pro within SillyTavern! :)
 
 ## Instructions
 
-1. Make a Perplexity account and activate a Pro subscription. Set your preferred model to Claude-3-Opus in the settings. Make sure **NOT** to cancel your subscription.
+1. Make a Perplexity account and activate a Pro subscription. Set your preferred model to Claude-3-Opus in the settings. Make sure ""NOT"" to cancel your subscription.
 
 2. Put the same email you signed up to Perplexity with into `config.ini`.
 
