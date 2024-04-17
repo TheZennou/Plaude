@@ -385,16 +385,9 @@ def perplexity_api():
     messages = data['messages']
     logging.info(f"Raw message from SillyTavern can be found in SillyTavern's Log.")
     
-    # Convert SillyTavern messages to plain text
     plaintext_question, system_messages = convert_sillytavern_to_plaintext(messages)
-    
-    # Initialize the Perplexity object
     perplexity = Perplexity(email)
-    
-    # Initialize the tiktoken tokenizer with the GPT-4 encoding
     tokenizer = tiktoken.encoding_for_model("gpt-4")
-    
-    # Calculate the number of tokens in the plaintext_question
     num_tokens = len(tokenizer.encode(plaintext_question))
     logging.info(f"Number of tokens: {Fore.GREEN}{num_tokens}{Style.RESET_ALL}")
     
@@ -403,10 +396,10 @@ def perplexity_api():
         sillytavern_error_response = convert_plaintext_to_sillytavern_error(error_message)
         return jsonify(sillytavern_error_response), 400
 
-    # Perform a search with the focus set to "writing" and the plaintext_question
+    # Here's the bit that actually does the search
     answer = perplexity.search(plaintext_question, search_focus="writing")
     
-    # Initialize variables to keep track of streamed words
+    # Stuff for fancy terminal
     streamed_words = ""
     prev_response_length = 0
     
@@ -418,13 +411,11 @@ def perplexity_api():
             if "answer" in a:
                 current_streamed_words = a["answer"].replace(" ", " ")
                 
-                # Check if "Human: " is encountered in the current streamed words
+                #Stuff to trim out Human:
                 human_index = current_streamed_words.find("Human: ")
                 if human_index != -1:
                     logging.info("Encountered 'Human: ' in the answer. Trimming the answer.")
-                    # Trim the answer up to "Human: "
                     current_streamed_words = current_streamed_words[:human_index].strip()
-                    # Update streamed_words with the trimmed answer
                     streamed_words = current_streamed_words
                     new_content = streamed_words[prev_response_length:]
                     prev_response_length = len(streamed_words)
@@ -432,9 +423,7 @@ def perplexity_api():
                     sillytavern_response = convert_plaintext_to_sillytavern(new_content)
                     yield f"data: {dumps(sillytavern_response)}\n\n"
                     
-                    # Close the Perplexity object when "Human: " is encountered
                     perplexity.close()
-                    # Terminate the answer streaming
                     break
                 else:
                     streamed_words = current_streamed_words
@@ -445,9 +434,8 @@ def perplexity_api():
                     yield f"data: {dumps(sillytavern_response)}\n\n"
             
             if a.get("final", False) or a.get("status") == "completed":
-                print("\n", end="", flush=True) # Print a newline character
+                print("\n", end="", flush=True)
                 logging.info("Search completed")
-                # Close the Perplexity object when the response is finished
                 perplexity.close()
                 break
     
