@@ -22,4 +22,4 @@ This Flask app takes messages from Perplexity and streams them into SillyTavern,
 
 And boom! It will generate your request.
 
-*Note: You might need a light jailbreak.*
+*Note: You might need a light jailbreak for spicy requests.*
