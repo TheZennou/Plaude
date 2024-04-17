@@ -6,7 +6,7 @@ This Flask app takes messages from Perplexity and streams them into SillyTavern,
 ## Instructions
 1. Click the green <> Code button, and download the repo as a ZIP file, extract it somewhere.
 
-2. Make a Perplexity account and activate a Pro subscription. Set your preferred model to Claude-3-Opus in the settings. Make sure ""NOT"" to cancel your subscription.
+2. Make a Perplexity account and activate a Pro subscription. Set your preferred model to Claude-3-Opus in the settings. Make sure ""NOT"" to cancel your subscription. *wink wink*
 
 3. Put the same email you signed up to Perplexity with into `config.ini`.
 
