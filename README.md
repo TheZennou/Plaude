@@ -23,3 +23,9 @@ This Flask app takes messages from Perplexity and streams them into SillyTavern,
 And boom! It will generate your request.
 
 *Note: You might need a light jailbreak for spicy requests.*
+
+## If you'd like to make improvements, there are several things I couldn't really figure out (I didn't bother too)
+1. Anonymous User Request? It often fails, but I'm not 100% sure it's needed, as we are using authenicated accounts.
+2. Document uploading for larger context? My script has a function for document uploading but everytime I tried the moderation got waaay more heavy. No clue why.
+3. Any other improvements.
+Just Submit a PR and I'll review and merge it if it's good.
