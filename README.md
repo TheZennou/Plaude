@@ -3,6 +3,8 @@
 Stealing Fire from the gods!
 This Flask app takes messages from Perplexity and streams them into SillyTavern, allowing you to use your """Legally Paid for""" subscription to Perplexity Pro within SillyTavern! :)
 
+# Use with Opus has been heavily restricted, there is no a daily limit on Opus, as well as the moderation being set to heavy. It's mostly dead. Might still be useful for coding, or using other models in the future. So I'll keep it up. 
+
 ## Instructions
 1. Click the green <> Code button, and download the repo as a ZIP file, extract it somewhere.
 
